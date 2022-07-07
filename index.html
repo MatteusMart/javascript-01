@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilo.css">
+    <title>Javascript Básico</title>
+</head>
+<body>
+    <div id="container">
+        <h1>Javascript - básico</h1>
+        <small>Manipulando elementos html</small>
+
+        <p>Função Soma</p>
+        <button onclick="soma()">Somar</button>
+
+        <button onclick="soma2(5,10)">Somar2</button>
+        <button onclick="soma2(500,600)">Somar2</button>
+
+        <div id="calculadora">
+            <h5>Calculadora - Soma de dois números</h5>
+            <form action="" id ="form-calc">
+                <div>
+                    <label for="numero1">Numero1</label>
+                    <input type="number" name="numero1" id="numero1">
+                </div>
+                <div>
+                    <label for="numero2">Numero2</label>
+                    <input type="number" name="numero2" id="numero2">
+                </div>
+
+                <div id="resultado">
+
+                </div>
+
+            </form>
+            <button onclick="somaNumeros()">Calcular</button>
+        </div>
+
+
+    </div> 
+
+
+    <script src="js/script.js"></script>
+</body>
+</html>
