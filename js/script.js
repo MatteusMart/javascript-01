@@ -32,3 +32,68 @@ const somaNumeros = () =>{
     `
 
 }
+
+const exibe = (id) =>{
+
+   let elemento = document.getElementById(id)
+
+   if(elemento.hidden == true){
+    elemento.hidden = false
+   }else{
+    elemento.hidden = true
+   }
+}
+
+// const exibeSelect = () =>{
+
+//     let opcao = document.getElementById('tecnologia').value
+
+
+//     let elemento = document.getElementById(opcao)
+ 
+//     if(elemento.hidden == true){
+//      elemento.hidden = false
+//     }else{
+//      elemento.hidden = true
+//     }
+//  }
+
+const exibeCidade = () =>{
+    // captura o elemento html do estado
+    let estado = document.getElementById('estado')
+    let cidade = document.getElementById('cidade')
+
+    // exibe o elemento do valor capturado
+    // alert(estado.value)
+    if(estado.value == 'sp'){
+        cidade.innerHTML = `
+        <option value="">Aguai</option>
+        <option value="">São João da Boa Vista</option>
+        <option value="">Águas da Prata</option>
+        `
+    }else if(estado.value == 'rj'){
+        cidade.innerHTML = `
+        <option value="">Laranjeiras</option>
+        <option value="">Xerém</option>
+        <option value="">Parati</option>
+        `
+    }else if(estado.value == 'mg'){
+        cidade.innerHTML = `
+        <option value="">Andradas</option>
+        <option value="">Poços de Caldas</option>
+        <option value="">Belo Horizonte</option>
+        `
+    }
+
+    
+}
+
+// função que consulta o cep de uma API
+// api utilizada POSTMON
+const consultaCep = () =>{
+
+    let cep = document.getElementById('cep').value
+
+    fetch(`https://viacep.com.br/ws/${cep}/json/`)
+}
+
