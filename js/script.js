@@ -1,3 +1,19 @@
+// funções que são executadas quando a página é carregada
+document.addEventListener ('DOMContentLoaded',function(){
+    ocultaLoader()
+})
+// função que exibe o loader 
+const exibeLoader = () =>{
+    $('.preloader').fadeTo("slow", 1);
+}
+
+// função que oculta o loader
+const ocultaLoader = () =>{
+    $('.preloader').fadeOut("slow", 0);
+}
+
+
+
 // função que realiza a soma de dois números
 const soma = () => {
     // declara uma variável e atribui valor
@@ -91,9 +107,29 @@ const exibeCidade = () =>{
 // função que consulta o cep de uma API
 // api utilizada POSTMON
 const consultaCep = () =>{
-
     let cep = document.getElementById('cep').value
 
-    fetch(`https://viacep.com.br/ws/${cep}/json/`)
+    if(cep == ''){
+        alert('Prencha o CEP!')
+        return
+    }
+
+    exibeLoader();
+    const result = fetch(`https://viacep.com.br/ws/${cep}/json/`)
+        .then(response=>response.json()) 
+        .then(result=>{
+            // resposta final da requisção, já validada em formato JSON
+            // manipulação do HTML
+            document.getElementById('logradouro').value = result.logradouro
+            document.getElementById('bairro').value = result.bairro
+            document.getElementById('localidade').value = result.localidade
+            document.getElementById('uf').value = result.uf
+
+            document.getElementById("numero").focus()
+
+            ocultaLoader()
+        })
 }
+
+
 
